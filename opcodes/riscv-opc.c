@@ -198,6 +198,11 @@ match_srxi_as_c_srxi (const struct riscv_opcode *op, insn_t insn)
 const struct riscv_opcode riscv_opcodes[] =
 {
 /* name,     xlen, isa,   operands, match, mask, match_func, pinfo.  */
+
+/* Bitmanip instruction subset */
+{"andn",      0, {"B", 0},   "d,s,t",  MATCH_ANDN, MASK_ANDN, match_opcode, 0 },
+/* *************************** */
+
 {"unimp",       0, {"C", 0},   "",  0, 0xffffU,  match_opcode, 0 },
 {"unimp",       0, {"I", 0},   "",  MATCH_CSRRW | (CSR_CYCLE << OP_SH_CSR), 0xffffffffU,  match_opcode, 0 }, /* csrw cycle, x0 */
 {"ebreak",      0, {"C", 0},   "",  MATCH_C_EBREAK, MASK_C_EBREAK, match_opcode, INSN_ALIAS },
